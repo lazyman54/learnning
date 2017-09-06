@@ -6,13 +6,18 @@ package com.ek.study.gc;
  * @date 2017/8/14
  */
 public class GcStudy {
+
+    Byte[] bytes2 = new Byte[1024 * 1024];
+    Byte[] bytes3 = new Byte[4096 * 1024];
+    /*Byte[] bytes4 = new Byte[4096*1024];
+    Byte[] bytes5 = new Byte[4096*1024];
+    Byte[] bytes6 = new Byte[4096*1024];*/
+
     public static void main(String[] args) {
-        byte[] bytes = new byte[4096];
-        byte[] bytes2 = new byte[4096];
-        byte[] bytes3 = new byte[4096];
-        byte[] bytes4 = new byte[4096];
-        byte[] bytes5 = new byte[4096];
-        byte[] bytes6 = new byte[4096];
-        System.out.println("a");
+        GcStudy gcStudy = new GcStudy();
+        System.out.println(gcStudy);
+        while (true) {
+
+        }
     }
 }

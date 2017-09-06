@@ -7,6 +7,11 @@
     <groupId>com.lazyman.study</groupId>
     <artifactId>com.lazyman.study</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <version.roaster>2.20.1.Final</version.roaster>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -36,6 +41,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>1.5.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.forge.roaster</groupId>
+            <artifactId>roaster-api</artifactId>
+            <version>${version.roaster}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.forge.roaster</groupId>
+            <artifactId>roaster-jdt</artifactId>
+            <version>${version.roaster}</version>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>
