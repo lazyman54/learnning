@@ -12,6 +12,7 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 
 /**
+ * 注意ServerBootstrap做的事情
  * @author lazyman
  * @version v1.0
  * @date 2017/8/30

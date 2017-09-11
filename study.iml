@@ -16,6 +16,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.jboss.forge.roaster:roaster-api:2.20.1.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jboss.forge.roaster:roaster-jdt:2.20.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.6.Final" level="project" />
