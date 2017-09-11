@@ -63,6 +63,8 @@ public class JavaSource {
                 System.out.print(parameter.getType().getQualifiedName());
                 System.out.print(" ");
                 System.out.println(parameter.getName());
+                System.out.println(parameter.getType());
+                System.out.println(parameter.getType().getClass().isPrimitive());
             }
         }
 
