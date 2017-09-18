@@ -15,7 +15,7 @@ import java.io.OutputStream;
 
 public class Response {
 
-    private static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 4096;
     Request request;
     OutputStream output;
 
@@ -39,6 +39,7 @@ public class Response {
                     output.write(bytes, 0, ch);
                     ch = fis.read(bytes, 0, BUFFER_SIZE);
                 }
+                output.flush();
             } else {
                 // file not found
                 String errorMessage = "HTTP/1.1 404 File Not Found\r\n" +
