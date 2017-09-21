@@ -1,4 +1,4 @@
-package com.ek.study.netty.client;
+package com.ek.study.io.netty.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

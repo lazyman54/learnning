@@ -1,14 +1,16 @@
 package com.ek.study.lazycat;
 
+import org.apache.catalina.connector.Request;
+
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Request {
+public class HttpRequest extends Request {
 
     private InputStream input;
     private String uri;
 
-    public Request(InputStream input) {
+    public HttpRequest(InputStream input) {
         this.input = input;
     }
 

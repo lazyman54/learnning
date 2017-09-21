@@ -1,4 +1,4 @@
-package com.ek.study.nio.tcp;
+package com.ek.study.io.nio.tcp;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

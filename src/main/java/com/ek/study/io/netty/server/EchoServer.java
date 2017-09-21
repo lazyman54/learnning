@@ -1,4 +1,4 @@
-package com.ek.study.netty.server;
+package com.ek.study.io.netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -9,7 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.net.InetSocketAddress;
-import java.nio.channels.SocketChannel;
 
 /**
  * @author lazyman

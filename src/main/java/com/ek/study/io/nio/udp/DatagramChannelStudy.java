@@ -1,4 +1,4 @@
-package com.ek.study.nio.udp;
+package com.ek.study.io.nio.udp;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

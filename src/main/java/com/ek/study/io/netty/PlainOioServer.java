@@ -1,4 +1,4 @@
-package com.ek.study.netty;
+package com.ek.study.io.netty;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -42,7 +42,7 @@ public class HttpServer {
             System.exit(1);
         }
 
-        // Loop waiting for a request
+        // Loop waiting for a httpRequest
         while (!shutdown) {
             Socket socket = null;
             InputStream input = null;
@@ -52,20 +52,21 @@ public class HttpServer {
                 input = socket.getInputStream();
                 output = socket.getOutputStream();
 
-                // create Request object and parse
-                Request request = new Request(input);
-                request.parse();
+                // create HttpRequest object and parse
+                HttpRequest httpRequest = new HttpRequest(input);
+                httpRequest.parse();
 
-                // create Response object
-                Response response = new Response(output);
-                response.setRequest(request);
-                response.sendStaticResource();
-
+                // create HttpResponse object
+                /*HttpResponse httpResponse = new HttpResponse(output);
+                httpResponse.setHttpRequest(httpRequest);
+                httpResponse.sendStaticResource();*/
+                output.write(3432);
+                output.flush();
                 // Close the socket
                 socket.close();
 
                 //check if the previous URI is a shutdown command
-                shutdown = request.getUri().equals(SHUTDOWN_COMMAND);
+                shutdown = httpRequest.getUri().equals(SHUTDOWN_COMMAND);
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;

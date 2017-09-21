@@ -1,37 +1,40 @@
 package com.ek.study.lazycat;
 
+import org.apache.catalina.connector.Response;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 /*
-  HTTP Response = Status-Line
+  HTTP HttpResponse = Status-Line
     *(( general-header | response-header | entity-header ) CRLF)
     CRLF
     [ message-body ]
     Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 */
 
-public class Response {
+public class HttpResponse extends Response {
 
     private static final int BUFFER_SIZE = 4096;
-    Request request;
+    HttpRequest httpRequest;
     OutputStream output;
 
-    public Response(OutputStream output) {
+    public HttpResponse(OutputStream output) {
+        //this.setContentType("html/index");
         this.output = output;
     }
 
-    public void setRequest(Request request) {
-        this.request = request;
+    public void setHttpRequest(HttpRequest httpRequest) {
+        this.httpRequest = httpRequest;
     }
 
     public void sendStaticResource() throws IOException {
         byte[] bytes = new byte[BUFFER_SIZE];
         FileInputStream fis = null;
         try {
-            File file = new File(HttpServer.WEB_ROOT, request.getUri());
+            File file = new File(HttpServer.WEB_ROOT, httpRequest.getUri());
             if (file.exists()) {
                 fis = new FileInputStream(file);
                 int ch = fis.read(bytes, 0, BUFFER_SIZE);

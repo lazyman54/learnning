@@ -1,30 +1,30 @@
-package com.ek.study.netty;
+package com.ek.study.io.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
-import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.oio.OioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.channel.socket.oio.OioServerSocketChannel;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 
 /**
- * 注意ServerBootstrap做的事情
  * @author lazyman
  * @version v1.0
  * @date 2017/8/30
  */
-public class NettyNioServer {
+public class NettyOioServer {
+
     public void server(int port) throws InterruptedException {
         final ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi! \t \n", Charset.forName("UTF-8")));
 
-        EventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup group = new OioEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
-            bootstrap.group(group).channel(NioServerSocketChannel.class)
+            bootstrap.group(group).channel(OioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override

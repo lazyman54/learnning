@@ -1,4 +1,4 @@
-package com.ek.study.nio;
+package com.ek.study.io.nio;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
