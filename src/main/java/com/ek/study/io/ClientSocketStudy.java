@@ -2,8 +2,11 @@ package com.ek.study.io;
 
 import java.io.*;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.ProxySelector;
 import java.net.Socket;
 import java.nio.charset.Charset;
+import java.util.Enumeration;
 
 /**
  * @author lazyman
@@ -13,8 +16,22 @@ import java.nio.charset.Charset;
 public class ClientSocketStudy {
 
     public static void main(String[] args) throws IOException {
-        Client client = new Client("127.0.0.1", 80);
-        client.send();
+        /*Client client = new Client("127.0.0.1", 80);
+        client.send();*/
+
+        SecurityManager securityManager = new SecurityManager();
+        //securityManager.checkConnect("baidu.com", -1);
+
+        InetAddress inetAddress = InetAddress.getByName("baidu.com");
+        System.out.println(inetAddress.getHostName());
+
+        Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+        while (networkInterfaces.hasMoreElements()) {
+            NetworkInterface networkInterface = networkInterfaces.nextElement();
+            System.out.println(networkInterface);
+        }
+        System.out.println(ProxySelector.getDefault());
+
     }
 
 }
