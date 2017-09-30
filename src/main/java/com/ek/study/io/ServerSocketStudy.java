@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
 /**
@@ -35,12 +35,18 @@ class Server {
 
     void start() throws IOException {
 
-        ServerSocket serverSocket = new ServerSocket();
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
 
-        serverSocket.bind(new InetSocketAddress(this.host, this.port));
+        serverSocketChannel.bind(new InetSocketAddress(this.host, this.port));
+
+        serverSocketChannel.configureBlocking(true);
+
 
         while (true) {
-            Socket accept = serverSocket.accept();
+
+            SocketChannel accept = serverSocketChannel.accept();
+
+            accept.
 
             new Thread(() -> {
                 InputStream inputStream;
