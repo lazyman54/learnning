@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 project="gateway"
 module="gateway-data"
 remotehost="root@10.8.15.82"
