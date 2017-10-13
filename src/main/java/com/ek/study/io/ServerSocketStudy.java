@@ -46,7 +46,7 @@ class Server {
 
             SocketChannel accept = serverSocketChannel.accept();
 
-            accept.
+            //accept.
 
             new Thread(() -> {
                 InputStream inputStream;
