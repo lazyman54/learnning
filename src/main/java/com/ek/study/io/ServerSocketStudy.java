@@ -1,9 +1,13 @@
 package com.ek.study.io;
 
+import io.netty.bootstrap.ServerBootstrap;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
@@ -46,7 +50,12 @@ class Server {
 
             SocketChannel accept = serverSocketChannel.accept();
 
-            //accept.
+            Selector selector = Selector.open();
+
+            accept.register(selector, SelectionKey.OP_ACCEPT);
+
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            serverBootstrap
 
             new Thread(() -> {
                 InputStream inputStream;
