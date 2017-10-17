@@ -1,3 +1,5 @@
+package com.ek.study.designPattern;
+
 /**
  * @author lazyman
  * @version v1.0

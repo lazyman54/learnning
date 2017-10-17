@@ -1,3 +1,4 @@
+/*
 package com.ek.study.io;
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -12,11 +13,13 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
+*/
 /**
  * @author lazyman
  * @version v1.0
  * @date 2017/9/20
- */
+ *//*
+
 public class ServerSocketStudy {
 
     public static void main(String[] args) throws IOException {
@@ -100,3 +103,4 @@ class Server {
 
     }
 }
+*/
