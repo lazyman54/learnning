@@ -1,4 +1,4 @@
-package com.ek.study.conCurrent;
+package com.ek.study.concurrent;
 
 import sun.misc.Unsafe;
 
@@ -13,6 +13,6 @@ public class UnSafeStudy {
     private static final Unsafe unsafe = Unsafe.getUnsafe();
 
     public static void main(String[] args) {
-
+        unsafe.park(true, 12L);
     }
 }

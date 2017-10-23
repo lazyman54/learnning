@@ -1,4 +1,4 @@
-package com.ek.study.conCurrent;
+package com.ek.study.concurrent;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;

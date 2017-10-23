@@ -1,4 +1,4 @@
-package com.ek.study.conCurrent;
+package com.ek.study.concurrent;
 
 import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.StampedLock;
@@ -9,7 +9,7 @@ import java.util.concurrent.locks.StampedLock;
  * @date 2017/8/22
  */
 public class StampLockStudy {
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         final StampedLock lock = new StampedLock();
         new Thread(() -> {
             long readLong = lock.writeLock();
@@ -20,15 +20,20 @@ public class StampLockStudy {
             lock.unlockWrite(readLong);
         }).start();
         Thread.sleep(100);
-        for( int i = 0; i < 3; ++i)
+        for (int i = 0; i < 3; ++i) {
             new Thread(new OccupiedCPUReadThread(lock)).start();
+        }
     }
-    private static class OccupiedCPUReadThread implements Runnable{
+
+    private static class OccupiedCPUReadThread implements Runnable {
         private StampedLock lock;
-        public OccupiedCPUReadThread(StampedLock lock){
+
+        public OccupiedCPUReadThread(StampedLock lock) {
             this.lock = lock;
         }
-        public void run(){
+
+        @Override
+        public void run() {
             Thread.currentThread().interrupt();
             System.out.println(Thread.currentThread().getName() + "sleep");
             long lockr = 0;
