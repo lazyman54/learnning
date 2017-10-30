@@ -1,3 +1,4 @@
+/*
 package com.ek.study.storm;
 
 import backtype.storm.Config;
@@ -33,3 +34,4 @@ public class LogAnalyserStorm {
         cluster.shutdown();
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.ek.study.storm;
 
 import backtype.storm.spout.SpoutOutputCollector;
@@ -95,3 +96,4 @@ public class FakeCallLogReaderSpout implements IRichSpout {
         return null;
     }
 }
+*/

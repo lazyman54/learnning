@@ -1,3 +1,4 @@
+/*
 package com.ek.study.storm;
 
 import backtype.storm.task.OutputCollector;
@@ -53,3 +54,4 @@ public class CallLogCounterBolt implements IRichBolt {
     }
 
 }
+*/
