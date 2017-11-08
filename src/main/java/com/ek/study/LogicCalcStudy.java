@@ -11,7 +11,7 @@ public class LogicCalcStudy {
         int negative = -131072;
         int easy = -128;
 
-        int anInt = Integer.parseInt("01111111111111110000000000000000", 2);
+        long anInt = Long.parseLong("11001000101101110000001110100000000", 2);
         System.out.println(anInt);
 
        /* System.out.println(toBinaryString(negative));
@@ -22,11 +22,13 @@ public class LogicCalcStudy {
 
         System.out.println(easy >> 2);
         System.out.println(easy >>> 2);*/
+        //System.out.println(toBinaryString(1510145737000L));
+        System.out.println(toBinaryString(1576800000000L));
 
     }
 
-    public static String toBinaryString(Integer number) {
-        String binaryString = Integer.toBinaryString(number);
+    public static String toBinaryString(Long number) {
+        String binaryString = Long.toBinaryString(number);
         System.out.println(binaryString);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < binaryString.length(); i += 8) {
