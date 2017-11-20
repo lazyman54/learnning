@@ -3,6 +3,7 @@ package com.ek.study;
 import org.apache.storm.shade.com.google.common.base.Preconditions;
 
 import java.util.Calendar;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * <ul> 返回带可读日期的时间
@@ -43,6 +44,7 @@ public interface IdGenerator<T> {
 abstract class AbstractIdGeneratorWithOutDate implements IdGenerator<Long> {
 
     private static final int WORKER_TPS_MAX_LENGTH = 22;
+
     protected final long EPOCH;
 
     protected final byte WORKER_ID_BITS;
@@ -101,7 +103,7 @@ final class CustomerKeyGenerator extends AbstractIdGeneratorWithOutDate {
     }
 
     @Override
-    public Long generateId() {
+    public synchronized Long generateId() {
         return null;
     }
 
@@ -140,9 +142,13 @@ final class DefaultKeyGenerator extends AbstractIdGeneratorWithOutDate {
 
     private static final long WORKER_ID_MAX_VALUE = 1L << WORKER_ID_BITS;
 
+    private static final ReentrantReadWriteLock LOCK = new ReentrantReadWriteLock();
+
     private static long workerId;
 
     private long sequence;
+
+    //private AtomicLong currentSequence = new AtomicLong(0);
 
     private long lastTime;
 
@@ -152,16 +158,23 @@ final class DefaultKeyGenerator extends AbstractIdGeneratorWithOutDate {
         this.lastTime = lastTime;
     }
 
-    public static void setWorkerId(final long workerId) {
-        Preconditions.checkArgument(workerId >= 0L && workerId < WORKER_ID_MAX_VALUE);
-        DefaultKeyGenerator.workerId = workerId;
-    }
-
     @Override
     public Long generateId() {
         long currentMillis = System.currentTimeMillis();
         Preconditions.checkState(lastTime <= currentMillis, "Clock is moving backwards, last time is %d milliseconds, current time is %d milliseconds", lastTime, currentMillis);
         if (lastTime == currentMillis) {
+            /*LOCK.readLock().lock();
+            long sequence1 = currentSequence.getAndIncrement() & SEQUENCE_MASK;
+            if (sequence1 == 0) {
+                LOCK.writeLock().lock();
+                currentMillis = waitUntilNextTime(currentMillis);
+                lastTime = currentMillis;
+                LOCK.writeLock().unlock();
+            }
+
+            currentSequence.set(sequence1);
+            LOCK.readLock().unlock();*/
+
             if (0L == (sequence = ++sequence & SEQUENCE_MASK)) {
                 currentMillis = waitUntilNextTime(currentMillis);
             }
@@ -169,9 +182,6 @@ final class DefaultKeyGenerator extends AbstractIdGeneratorWithOutDate {
             sequence = 0;
         }
         lastTime = currentMillis;
-        /*if (log.isDebugEnabled()) {
-            log.debug("{}-{}-{}", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(lastTime)), workerId, sequence);
-        }*/
         return ((currentMillis - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS) | (workerId << WORKER_ID_LEFT_SHIFT_BITS) | sequence;
     }
 
@@ -203,8 +213,6 @@ final class DefaultKeyGenerator extends AbstractIdGeneratorWithOutDate {
         return time;
     }*/
 }
-
-
 
 
 /**

@@ -1,5 +1,7 @@
 package com.ek.study;
 
+import java.math.BigInteger;
+
 /**
  * @author lazyman
  * @version v1.0
@@ -11,7 +13,12 @@ public class LogicCalcStudy {
         int negative = -131072;
         int easy = -128;
 
-        long anInt = Long.parseLong("11001000101101110000001110100000000", 2);
+        BigInteger bigInteger = new BigInteger("0000000000110011001001000101010100110110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000001", 2);
+        BigInteger bigInteger2 = new BigInteger("110011001001000101010100110110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000001", 2);
+        System.out.println(bigInteger2);
+        System.out.println(bigInteger);
+
+        long anInt = Long.parseLong("1101001111000011101111001000001000000", 2);
         System.out.println(anInt);
 
        /* System.out.println(toBinaryString(negative));
@@ -23,7 +30,8 @@ public class LogicCalcStudy {
         System.out.println(easy >> 2);
         System.out.println(easy >>> 2);*/
         //System.out.println(toBinaryString(1510145737000L));
-        System.out.println(toBinaryString(1576800000000L));
+        //System.out.println(toBinaryString(86400000L));
+        System.out.println(toBinaryString(1999999999999L));
 
     }
 

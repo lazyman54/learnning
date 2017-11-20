@@ -1,4 +1,5 @@
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
 /**
  * @author lazyman
@@ -7,9 +8,27 @@ import java.io.UnsupportedEncodingException;
  */
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        //System.out.println(URLDecoder.decode("http%3A%2F%2F10.20.160.198%2Fwiki%2Fdisplay%2Fdubbo%2Fhost+%3D+10.8.2.150+%3D%3E+host+%3D+10.8.15.42", "utf-8"));
-        System.out.println(Long.MAX_VALUE);
-        Long maxLong = (1L << 62) + ((1L << 62) - 1);
-        System.out.println(maxLong);
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.get(Calendar.YEAR));
+        System.out.println(calendar.get(Calendar.MONTH));
+        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
+        System.out.println(calendar.get(Calendar.DATE));
+        System.out.println(calendar.get(Calendar.NARROW_STANDALONE));
+        //cpuJobPerMs();
+    }
+
+    private static void cpuJobPerMs() {
+        long oldCurrent = System.currentTimeMillis();
+        int count = 0;
+        long newCurrent;
+        while ((newCurrent = System.currentTimeMillis()) == oldCurrent) {
+
+        }
+        while (System.currentTimeMillis() == newCurrent) {
+            //System.out.println("a");
+            int a = 5 + 5;
+            count++;
+        }
+        System.out.println("*************" + count + "*****************");
     }
 }
