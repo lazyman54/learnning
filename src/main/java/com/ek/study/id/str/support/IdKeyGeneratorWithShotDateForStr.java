@@ -1,9 +1,9 @@
 package com.ek.study.id.str.support;
 
+import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGeneratorWithDate;
+import com.dafy.base.nodepencies.strategy.id.str.IStrIdKeyGenerator;
 
-import com.ek.study.id.AbstractedIdKeyGeneratorWithDate;
-import com.ek.study.id.str.IStrIdKeyGenerator;
-
+import java.math.BigInteger;
 import java.util.Calendar;
 
 /**
@@ -15,21 +15,13 @@ import java.util.Calendar;
  */
 public class IdKeyGeneratorWithShotDateForStr extends AbstractedIdKeyGeneratorWithDate implements IStrIdKeyGenerator {
 
-    private long sequence;
-    private long lastTime;
-
     public IdKeyGeneratorWithShotDateForStr(byte workerIdBits, byte sequenceBits) {
-
-        super(workerIdBits, sequenceBits);
-
-        maxIdLength = String.valueOf(maxValue(timestampBits)).length() +
-                String.valueOf(maxValue(workerIdBits)).length() +
-                String.valueOf(maxValue(sequenceBits)).length() + 6;
+        super(workerIdBits, sequenceBits, 6);
     }
 
     @Override
     public int setWorkId(int workId) {
-        return 0;
+        return doSetWorkId(workId);
     }
 
     @Override
@@ -41,41 +33,17 @@ public class IdKeyGeneratorWithShotDateForStr extends AbstractedIdKeyGeneratorWi
         if (!isToday(calendar)) {
             epoch = calendar.getTimeInMillis();
         }
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
+        long currentMillis = doGenerateId();
 
         long timePart = currentMillis - epoch;
-        //long longPart = ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
-
-        return getTodayStrForShort(calendar) + timePart + workId + sequence;
 
 
-        /*Calendar calendar = getTodayCalendar();
+        String tb = toBinaryStr(timePart, timestampBits);
+        String wb = toBinaryStr(workId, workerIdBits);
+        String sb = toBinaryStr(sequence, sequenceBits);
+        String ib = tb + wb + sb;
 
-        if (!isToday(calendar)) {
-            epoch = calendar.getTimeInMillis();
-        }
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
-        long longPart = ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
-
-        return getTodayStr(calendar) + longPart;*/
-
-
+        return getTodayStrForShort(calendar) + new BigInteger(ib, 2).toString();
     }
 
     @Override
@@ -86,6 +54,11 @@ public class IdKeyGeneratorWithShotDateForStr extends AbstractedIdKeyGeneratorWi
 
     @Override
     public int getMaxIdLength() {
-        return 0;
+        return maxIdLength;
+    }
+
+    @Override
+    public long getMaxWorkId() {
+        return this.maxWorkId;
     }
 }

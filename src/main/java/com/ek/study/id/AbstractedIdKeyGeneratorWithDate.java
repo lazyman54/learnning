@@ -15,8 +15,9 @@ public abstract class AbstractedIdKeyGeneratorWithDate extends AbstractedIdKeyGe
         super();
     }
 
-    public AbstractedIdKeyGeneratorWithDate(byte workerIdBits, byte sequenceBits) {
+    public AbstractedIdKeyGeneratorWithDate(byte workerIdBits, byte sequenceBits, int dateLength) {
         super(workerIdBits, sequenceBits);
+        maxIdLength = calcMaxLength(timestampBits + workerIdBits + sequenceBits) + dateLength;
     }
 
     @Override

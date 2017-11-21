@@ -86,6 +86,19 @@ public abstract class AbstractedIdKeyGenerator {
         return sb.toString();
     }
 
+    protected long doGenerateId() {
+        long currentMillis = System.currentTimeMillis();
+        if (lastTime == currentMillis) {
+            if (0L == (sequence = ++sequence & sequenceMask)) {
+                currentMillis = waitUntilNextTime(currentMillis);
+            }
+        } else {
+            sequence = 0;
+        }
+        lastTime = currentMillis;
+        return currentMillis;
+    }
+
     public int doSetWorkId(int workId) {
         if (workId > this.maxWorkId) {
             throw new IllegalArgumentException("the work id is too big, please set smaller one ,smaller than " + this.maxWorkId);

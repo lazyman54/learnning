@@ -1,8 +1,7 @@
 package com.ek.study.id.str.support;
 
-
-import com.ek.study.id.AbstractedIdKeyGenerator;
-import com.ek.study.id.str.IStrIdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.str.IStrIdKeyGenerator;
 
 import java.math.BigInteger;
 
@@ -16,12 +15,7 @@ import java.math.BigInteger;
 public class IdKeyGeneratorForStr extends AbstractedIdKeyGenerator implements IStrIdKeyGenerator {
 
     public IdKeyGeneratorForStr(byte workerIdBits, byte sequenceBits) {
-
         super(workerIdBits, sequenceBits);
-
-        maxIdLength = calcMaxLength(timestampBits + workerIdBits + sequenceBits);
-
-        //maxIdLength = String.valueOf(maxValue((byte) (timestampBits + workerIdBits + sequenceBits))).length();
     }
 
     @Override
@@ -33,28 +27,15 @@ public class IdKeyGeneratorForStr extends AbstractedIdKeyGenerator implements IS
     public synchronized String generateId() {
 
 
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
+        long currentMillis = doGenerateId();
 
         long timePart = currentMillis - epoch;
-        long workIdPart = workId;
-        long sequencePart = sequence;
 
         String tb = toBinaryStr(timePart, timestampBits);
         String wb = toBinaryStr(workId, workerIdBits);
-        String sb = toBinaryStr(workId, sequenceBits);
+        String sb = toBinaryStr(sequence, sequenceBits);
         String ib = tb + wb + sb;
-        System.out.println(ib);
-
-        //long longPart = ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
-
+        //System.out.println(ib);
         return new BigInteger(ib, 2).toString();
 
 
@@ -69,5 +50,10 @@ public class IdKeyGeneratorForStr extends AbstractedIdKeyGenerator implements IS
     @Override
     public int getMaxIdLength() {
         return this.maxIdLength;
+    }
+
+    @Override
+    public long getMaxWorkId() {
+        return this.maxWorkId;
     }
 }

@@ -1,8 +1,7 @@
 package com.ek.study.id.num.support;
 
-
-import com.ek.study.id.AbstractedIdKeyGeneratorWithDate;
-import com.ek.study.id.num.INumIdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGeneratorWithDate;
+import com.dafy.base.nodepencies.strategy.id.num.INumIdKeyGenerator;
 
 import java.util.Calendar;
 
@@ -29,21 +28,13 @@ public class IdKeyGeneratorWithShotDateForLong extends AbstractedIdKeyGeneratorW
     }
 
     @Override
-    public Long generateId() {
+    public synchronized Long generateId() {
         Calendar calendar = getTodayCalendar();
 
         if (!isToday(calendar)) {
             epoch = calendar.getTimeInMillis();
         }
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
+        long currentMillis = doGenerateId();
         long longPart = ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
 
         return Long.parseLong(getTodayStrForShort(calendar) + longPart);

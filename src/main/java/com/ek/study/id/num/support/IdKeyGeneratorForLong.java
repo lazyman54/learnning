@@ -1,8 +1,7 @@
 package com.ek.study.id.num.support;
 
-
-import com.ek.study.id.AbstractedIdKeyGenerator;
-import com.ek.study.id.num.INumIdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.num.INumIdKeyGenerator;
 
 /**
  * @author lazyman
@@ -26,15 +25,8 @@ public class IdKeyGeneratorForLong extends AbstractedIdKeyGenerator implements I
 
     @Override
     public synchronized Long generateId() {
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
+        long currentMillis = doGenerateId();
+        
         return ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
     }
 

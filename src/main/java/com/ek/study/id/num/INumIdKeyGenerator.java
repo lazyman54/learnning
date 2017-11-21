@@ -1,9 +1,9 @@
 package com.ek.study.id.num;
 
-
-import com.ek.study.id.IdKeyGenerator;
+import com.dafy.base.nodepencies.strategy.id.IdKeyGenerator;
 
 /**
+ * long类型的id
  * @author lazyman
  * @version v1.0
  * @date 2017/11/13
@@ -21,10 +21,5 @@ public interface INumIdKeyGenerator extends IdKeyGenerator<Long> {
      */
     long getMaxTps();
 
-    /**
-     * 获取最大的workId
-     *
-     * @return 返回最大的workId
-     */
-    long getMaxWorkId();
+
 }

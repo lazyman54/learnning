@@ -1,9 +1,9 @@
 package com.ek.study.id.str.support;
 
+import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGeneratorWithDate;
+import com.dafy.base.nodepencies.strategy.id.str.IStrIdKeyGenerator;
 
-import com.ek.study.id.AbstractedIdKeyGeneratorWithDate;
-import com.ek.study.id.str.IStrIdKeyGenerator;
-
+import java.math.BigInteger;
 import java.util.Calendar;
 
 /**
@@ -17,11 +17,7 @@ public class IdKeyGeneratorWithDateForStr extends AbstractedIdKeyGeneratorWithDa
 
     public IdKeyGeneratorWithDateForStr(byte workerIdBits, byte sequenceBits) {
 
-        super(workerIdBits, sequenceBits);
-
-        maxIdLength = String.valueOf(maxValue(timestampBits)).length() +
-                String.valueOf(maxValue(workerIdBits)).length() +
-                String.valueOf(maxValue(sequenceBits)).length() + 8;
+        super(workerIdBits, sequenceBits, 8);
 
         //maxIdLength = String.valueOf(maxValue((byte) (timestampBits + workerIdBits + sequenceBits))).length() + 8;
     }
@@ -39,20 +35,17 @@ public class IdKeyGeneratorWithDateForStr extends AbstractedIdKeyGeneratorWithDa
         if (!isToday(calendar)) {
             epoch = calendar.getTimeInMillis();
         }
-        long currentMillis = System.currentTimeMillis();
-        if (lastTime == currentMillis) {
-            if (0L == (sequence = ++sequence & sequenceMask)) {
-                currentMillis = waitUntilNextTime(currentMillis);
-            }
-        } else {
-            sequence = 0;
-        }
-        lastTime = currentMillis;
+        long currentMillis = doGenerateId();
 
         long timePart = currentMillis - epoch;
-        //long longPart = ((currentMillis - epoch) << timestampLeftShiftBits) | (workId << sequenceBits) | sequence;
 
-        return getTodayStr(calendar) + timePart + workId + sequence;
+
+        String tb = toBinaryStr(timePart, timestampBits);
+        String wb = toBinaryStr(workId, workerIdBits);
+        String sb = toBinaryStr(sequence, sequenceBits);
+        String ib = tb + wb + sb;
+
+        return getTodayStr(calendar) + new BigInteger(ib, 2).toString();
 
 
     }
@@ -66,5 +59,10 @@ public class IdKeyGeneratorWithDateForStr extends AbstractedIdKeyGeneratorWithDa
     @Override
     public int getMaxIdLength() {
         return this.maxIdLength;
+    }
+
+    @Override
+    public long getMaxWorkId() {
+        return this.maxWorkId;
     }
 }
