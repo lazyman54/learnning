@@ -1,11 +1,12 @@
 package com.ek.study.id;
 
-import com.dafy.base.nodepencies.strategy.id.num.support.IdKeyGeneratorForLong;
-import com.dafy.base.nodepencies.strategy.id.num.support.IdKeyGeneratorWithDateForLong;
-import com.dafy.base.nodepencies.strategy.id.num.support.IdKeyGeneratorWithShotDateForLong;
-import com.dafy.base.nodepencies.strategy.id.str.support.IdKeyGeneratorForStr;
-import com.dafy.base.nodepencies.strategy.id.str.support.IdKeyGeneratorWithDateForStr;
-import com.dafy.base.nodepencies.strategy.id.str.support.IdKeyGeneratorWithShotDateForStr;
+
+import com.ek.study.id.num.support.IdKeyGeneratorForLong;
+import com.ek.study.id.num.support.IdKeyGeneratorWithDateForLong;
+import com.ek.study.id.num.support.IdKeyGeneratorWithShotDateForLong;
+import com.ek.study.id.str.support.IdKeyGeneratorForStr;
+import com.ek.study.id.str.support.IdKeyGeneratorWithDateForStr;
+import com.ek.study.id.str.support.IdKeyGeneratorWithShotDateForStr;
 
 /**
  * id生成器的工厂类

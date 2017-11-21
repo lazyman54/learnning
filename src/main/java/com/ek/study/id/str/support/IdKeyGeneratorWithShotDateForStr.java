@@ -1,7 +1,8 @@
 package com.ek.study.id.str.support;
 
-import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGeneratorWithDate;
-import com.dafy.base.nodepencies.strategy.id.str.IStrIdKeyGenerator;
+
+import com.ek.study.id.AbstractedIdKeyGeneratorWithDate;
+import com.ek.study.id.str.IStrIdKeyGenerator;
 
 import java.math.BigInteger;
 import java.util.Calendar;

@@ -1,6 +1,7 @@
 package com.ek.study.id.num;
 
-import com.dafy.base.nodepencies.strategy.id.IdKeyGenerator;
+
+import com.ek.study.id.IdKeyGenerator;
 
 /**
  * long类型的id

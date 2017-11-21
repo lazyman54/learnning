@@ -1,7 +1,8 @@
 package com.ek.study.id.str.support;
 
-import com.dafy.base.nodepencies.strategy.id.AbstractedIdKeyGenerator;
-import com.dafy.base.nodepencies.strategy.id.str.IStrIdKeyGenerator;
+
+import com.ek.study.id.AbstractedIdKeyGenerator;
+import com.ek.study.id.str.IStrIdKeyGenerator;
 
 import java.math.BigInteger;
 
