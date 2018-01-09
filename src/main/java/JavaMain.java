@@ -1,5 +1,4 @@
 import java.io.UnsupportedEncodingException;
-import java.util.Calendar;
 
 /**
  * @author lazyman
@@ -8,12 +7,8 @@ import java.util.Calendar;
  */
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        Calendar calendar = Calendar.getInstance();
-        System.out.println(calendar.get(Calendar.YEAR));
-        System.out.println(calendar.get(Calendar.MONTH));
-        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
-        System.out.println(calendar.get(Calendar.DATE));
-        System.out.println(calendar.get(Calendar.NARROW_STANDALONE));
+        String province = "山东省";
+        System.out.println(province.substring(0, province.lastIndexOf("省")));
         //cpuJobPerMs();
     }
 

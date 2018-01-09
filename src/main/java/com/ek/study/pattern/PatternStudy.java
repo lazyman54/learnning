@@ -12,9 +12,26 @@ public class PatternStudy {
 
 
     public static void main(String[] args) {
-        getUpperChar();
+        getIp();
 
     }
+
+
+    /**
+     * 匹配ip地址（127.0.0.1）
+     */
+    private static void getIp() {
+        String str = "127.0.0.255";
+        /*不获取匹配ip地址*/
+        boolean matches = Pattern.matches("((?:(?:25[0-5]|2[0-4]\\d|(?:1\\d{2}|[1-9]?\\d))\\.){3}(?:25[0-5]|2[0-4]\\d|(?:1\\d{2}|[1-9]?\\d)))", str);
+        System.out.println(matches);
+    }
+
+    private static void betterPattern() {
+        String regex1 = "try|tries";
+        String regex2 = "tr(?:y|ies)";
+    }
+
 
     private static void getUpperChar() {
         final Pattern PATTERN = Pattern.compile("([A-Z|_])");
