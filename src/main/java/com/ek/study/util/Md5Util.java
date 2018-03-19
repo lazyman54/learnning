@@ -7,15 +7,15 @@ public class Md5Util {
 
     private static final String DEFAULT_CHARASET = "UTF-8";
 
-    public static final String digestMd5(byte[] data) {
+    /*public static final String digestMd5(byte[] data) {
 
     }
 
     public static final String digestMd5(String data) {
         if (data == null || data.length() == 0 || " ".equals(data)) {
-            return digestMd5(data.getBytes())
+            //return digestMd5(data.getBytes())
         }
-    }
+    }*/
 
 
 }

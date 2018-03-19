@@ -12,7 +12,8 @@ public class PatternStudy {
 
 
     public static void main(String[] args) {
-        getIp();
+        //getPhone();
+        System.out.println("abc".getBytes());
 
     }
 
@@ -24,6 +25,12 @@ public class PatternStudy {
         String str = "127.0.0.255";
         /*不获取匹配ip地址*/
         boolean matches = Pattern.matches("((?:(?:25[0-5]|2[0-4]\\d|(?:1\\d{2}|[1-9]?\\d))\\.){3}(?:25[0-5]|2[0-4]\\d|(?:1\\d{2}|[1-9]?\\d)))", str);
+        System.out.println(matches);
+    }
+
+    private static void getPhone() {
+
+        boolean matches = Pattern.matches("^1\\d{10}$", "18578239990");
         System.out.println(matches);
     }
 
