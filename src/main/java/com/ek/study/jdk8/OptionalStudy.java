@@ -1,9 +1,6 @@
 package com.ek.study.jdk8;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author lazyman
@@ -24,15 +21,19 @@ public class OptionalStudy {
         list.add("g");
         list.add("h");
         list.stream().filter((s) -> {
-            System.out.println(s);
+            //System.out.println(s);
             return s.equals("b") || s.equals("h");
         }).sorted().forEach(set::add);
         System.out.println(set.size());
         // System.out.println(count);
 
+        List<String> ss = Arrays.asList("eric", "bbb", "bbbd", "baa");
+        String result = ss.stream().filter(str -> {
+            System.out.println(str);
+            return str.length() == 3;
+        }).map(String::toUpperCase).findFirst().get();
+        System.out.println(result);
 
     }
 }
 
-class User {
-}
