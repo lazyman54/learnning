@@ -34,6 +34,13 @@ public class OptionalStudy {
         }).map(String::toUpperCase).findFirst().get();
         System.out.println(result);
 
+        Thread t = new Thread(() -> {
+            while (true) {
+                System.out.println("aa");
+            }
+        });
+        t.setDaemon(true);
+        t.start();
     }
 }
 

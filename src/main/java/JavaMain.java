@@ -1,6 +1,4 @@
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * @author lazyman
@@ -9,17 +7,22 @@ import java.util.Collection;
  */
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        String province = "山东省";
+        /*String province = "山东省";
         System.out.println(province.substring(0, province.lastIndexOf("省")));
         //cpuJobPerMs();
-        System.out.println(TestEnv.H5.toString());
+        System.out.println(TestEnv.H5.toString());*/
 
 
-        Collection<Long> ids = new ArrayList<>();
+/*        Collection<Long> ids = new ArrayList<>();
         ids.add(12L);
         ids.add(13L);
         ids.add(14L);
-        System.out.println();
+        System.out.println();*/
+
+
+        System.out.println(Math.abs("43704824".hashCode()) % 20);
+
+
 
     }
 
