@@ -1,4 +1,9 @@
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import org.apache.storm.shade.org.apache.commons.collections.map.HashedMap;
+
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 /**
  * @author lazyman
@@ -7,21 +12,38 @@ import java.io.UnsupportedEncodingException;
  */
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        /*String province = "山东省";
-        System.out.println(province.substring(0, province.lastIndexOf("省")));
-        //cpuJobPerMs();
-        System.out.println(TestEnv.H5.toString());*/
+        Map<String, Object> map = new HashedMap();
+        map.put("a", 12);
+        map.put("b", null);
+        System.out.println(JSON.toJSONString(map, SerializerFeature.PrettyFormat, SerializerFeature.WriteNullStringAsEmpty));
+
+        //Comparator<String> comparator = Collator.getInstance(Locale.CHINA);
+       /* HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
+        outputFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
+        outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+
+        Comparator<String> comparator1 = (o1, o2) -> {
+
+            String stringArray="";
+            try {
+                stringArray = PinyinHelper.toHanyuPinyinString(o1,outputFormat, "");
+            } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {
+                badHanyuPinyinOutputFormatCombination.printStackTrace();
+            }
+            System.out.println(stringArray);
+            String[] strings = PinyinHelper.toHanyuPinyinStringArray(o2.toCharArray()[0]);
+            System.out.println(Lists.newArrayList(strings));
+            return 1;
+        };
+        List<String> sortList = Lists.newArrayList("上海", "合肥", "北京", "广州", "南京", "天津","怡情","赵国");
+
+        sortList.sort(comparator1);
+
+        //sortList.sort((String::compareToIgnoreCase));
 
 
-/*        Collection<Long> ids = new ArrayList<>();
-        ids.add(12L);
-        ids.add(13L);
-        ids.add(14L);
-        System.out.println();*/
-
-
-        System.out.println(Math.abs("43704824".hashCode()) % 20);
-
+        System.out.println(sortList);*/
+        //System.out.println(Math.abs("43704824".hashCode()) % 20);
 
 
     }
