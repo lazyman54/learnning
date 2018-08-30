@@ -31,12 +31,9 @@ public class JavaMain {
         System.out.println(temp % 8);
         System.out.println(Math.abs(String.valueOf(2000028331).hashCode() % 128));
 
-        System.out.println(Math.abs("381118721".hashCode()) % 20);
+        System.out.println(Math.abs("169084217".hashCode()) % 20);
 
 
-        if (true && true || false & true) {
-            System.out.println("here");
-        }
 
 /*        System.out.println(aa / 8);
         System.out.println(aa % 128);*/
