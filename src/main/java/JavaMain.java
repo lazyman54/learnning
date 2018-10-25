@@ -1,12 +1,5 @@
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializeConfig;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.google.common.base.Stopwatch;
-import org.apache.storm.shade.org.apache.commons.collections.map.HashedMap;
-
 import java.io.UnsupportedEncodingException;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import org.apache.storm.shade.org.apache.commons.lang.math.RandomUtils;
 
 /**
  * @author lazyman
@@ -15,58 +8,16 @@ import java.util.concurrent.TimeUnit;
  */
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
-        Map<String, Object> map = new HashedMap();
-        map.put("a", 12);
-        map.put("b", null);
-        System.out.println(JSON.toJSONString(map, SerializerFeature.PrettyFormat, SerializerFeature.WriteNullStringAsEmpty));
 
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        for (int i = 0; i < 100; i++) {
-            SerializeConfig config = new SerializeConfig();
+        char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 16; i++) {
+            sb.append(chars[RandomUtils.nextInt(chars.length)]);
         }
-        System.out.println(stopwatch.elapsed(TimeUnit.MICROSECONDS));
-
-        int temp = Math.abs(String.valueOf(2000028331).hashCode()) / 128;
-
-        System.out.println(temp % 8);
-        System.out.println(Math.abs(String.valueOf(2000028331).hashCode() % 128));
-
-        System.out.println(Math.abs("169084217".hashCode()) % 20);
+        System.out.println(sb.toString());
 
 
-
-/*        System.out.println(aa / 8);
-        System.out.println(aa % 128);*/
-        //System.out.println(Math.abs(System.identityHashCode("KB20180807140338GWUZ6BDP6W650487"))%128);
-
-
-        //Comparator<String> comparator = Collator.getInstance(Locale.CHINA);
-       /* HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
-        outputFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-        outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-
-        Comparator<String> comparator1 = (o1, o2) -> {
-
-            String stringArray="";
-            try {
-                stringArray = PinyinHelper.toHanyuPinyinString(o1,outputFormat, "");
-            } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {
-                badHanyuPinyinOutputFormatCombination.printStackTrace();
-            }
-            System.out.println(stringArray);
-            String[] strings = PinyinHelper.toHanyuPinyinStringArray(o2.toCharArray()[0]);
-            System.out.println(Lists.newArrayList(strings));
-            return 1;
-        };
-        List<String> sortList = Lists.newArrayList("上海", "合肥", "北京", "广州", "南京", "天津","怡情","赵国");
-
-        sortList.sort(comparator1);
-
-        //sortList.sort((String::compareToIgnoreCase));
-
-
-        System.out.println(sortList);*/
-        //System.out.println(Math.abs("43704824".hashCode()) % 20);
 
 
     }

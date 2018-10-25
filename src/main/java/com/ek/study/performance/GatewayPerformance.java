@@ -1,6 +1,17 @@
 package com.ek.study.performance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -8,11 +19,6 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.apache.storm.shade.com.google.common.base.Stopwatch;
-
-import java.io.IOException;
-import java.util.Map;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author lazyman
@@ -58,9 +64,9 @@ public class GatewayPerformance {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         GatewayPerformance gatewayPerformance = new GatewayPerformance();
-        gatewayPerformance.request = RequestBuilder.get("http://api.gateway.7daichina.com/base/gateway?appKey=data-engine&url=/data-engine/business-hall/city").addParameter("businessHall", "厦门营业厅").build();
-        int maxRe = 10000;
-        gatewayPerformance.doTest(300, maxRe);
+        gatewayPerformance.request = RequestBuilder.get("http://127.0.0.1:8080/demo/validata1?a=1&b=2&c=2&d=2&e=2&f=2&g=2&h=2").build();
+        int maxRe = 50000;
+        gatewayPerformance.doTest(100, maxRe);
         System.out.println("一共执行了" + maxRe + "个请求，其中成功了：" + gatewayPerformance.successCount + "个，失败了：" + gatewayPerformance.failCount + "个");
 
     }
@@ -96,7 +102,7 @@ public class GatewayPerformance {
         } catch (IOException e) {
             return false;
         }
-        return Integer.parseInt(map.get("code").toString()) == 0;
+        return (Boolean) map.get("success");
 
     }
 
