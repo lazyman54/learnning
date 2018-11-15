@@ -1,5 +1,6 @@
 import java.io.UnsupportedEncodingException;
-import org.apache.storm.shade.org.apache.commons.lang.math.RandomUtils;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author lazyman
@@ -9,13 +10,18 @@ import org.apache.storm.shade.org.apache.commons.lang.math.RandomUtils;
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
+        Set<Integer> hashList = new HashSet<>();
+
+        System.out.println(Math.abs(Integer.MIN_VALUE) % 100);
+        System.out.println(hashList.size());
+
+        /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 34; i++) {
             sb.append(chars[RandomUtils.nextInt(chars.length)]);
         }
-        System.out.println(sb.toString());
+        System.out.println(sb.toString().toLowerCase());*/
 
 
 
