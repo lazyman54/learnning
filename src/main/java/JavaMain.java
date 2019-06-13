@@ -1,6 +1,4 @@
 import java.io.UnsupportedEncodingException;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author lazyman
@@ -10,10 +8,10 @@ import java.util.Set;
 public class JavaMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        Set<Integer> hashList = new HashSet<>();
+        Integer a = 128;
+        Integer b = 128;
 
-        System.out.println(Math.abs(Integer.MIN_VALUE) % 100);
-        System.out.println(hashList.size());
+        System.out.println(a == b);
 
         /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
 

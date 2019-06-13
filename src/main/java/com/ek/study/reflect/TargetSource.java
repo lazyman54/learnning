@@ -8,7 +8,7 @@ import java.util.List;
  * @version v1.0
  * @date 2017/9/13
  */
-public class TargetSource {
+public class TargetSource extends AbstractTargetSource {
     private int inter;
 
     public String str;
@@ -16,6 +16,7 @@ public class TargetSource {
     private ArgObj argObj;
 
     private List<ArgObj> argObjs;
+
 
     public void noArgMethod() {
         System.out.println("no arg method");

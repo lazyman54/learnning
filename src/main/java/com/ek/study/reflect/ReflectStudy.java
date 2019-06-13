@@ -10,7 +10,13 @@ import java.util.List;
  * @date 2017/9/13
  */
 public class ReflectStudy {
-    public static void main(String[] args) throws NoSuchMethodException, NoSuchFieldException {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+
+        abstractReflect();
+
+    }
+
+    private static void reflect()throws NoSuchMethodException, NoSuchFieldException {
         Class<TargetSource> cls = TargetSource.class;
 
         Field[] fields = cls.getDeclaredFields();
@@ -38,7 +44,22 @@ public class ReflectStudy {
         System.out.println(method5);
         Method method6 = cls.getMethod("listObjArgMethod", cls.getDeclaredField("argObjs").getType());
         System.out.println(method6);
+    }
+
+    private static void abstractReflect() throws NoSuchFieldException, IllegalAccessException {
+
+        Class<AbstractTargetSource> cls = AbstractTargetSource.class;
+
+        Field key = cls.getDeclaredField("key");
+
+        key.setAccessible(true);
+
+        key.set(null, "abc1212");
+
+        System.out.println(AbstractTargetSource.getKey());
+        System.out.println(new TargetSource().getKey());
 
 
     }
+
 }
