@@ -1,0 +1,10 @@
+
+Dsquid:S1481"&Remove this unused "a" local variable.(ÜĞÆ‰8ïÇÒÍá,
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(Œä¤8–ï½Íá,
+Dsquid:S1481"&Remove this unused "b" local variable.(éÄ»8ïÇÒÍá,
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ëä§è8–ï½Íá,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(¯œ¥¤øÿÿÿÿ8–ï½Íá,
+Ssquid:S1854"5Remove this useless assignment to local variable "a".(ÜĞÆ‰8ïÇÒÍá,
+Ssquid:S1854"5Remove this useless assignment to local variable "b".(éÄ»8ïÇÒÍá,
