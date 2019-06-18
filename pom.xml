@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lazyman.study</groupId>
-    <artifactId>com.lazyman.study</artifactId>
+    <artifactId>learnning</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
