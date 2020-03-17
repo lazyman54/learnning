@@ -1,15 +1,0 @@
-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í…¥¾ùÿÿÿÿ
-Ksquid:S1611"/Remove the parentheses around the "s" parameter(å´ĞÄşÿÿÿÿ
-O
-squid:S106'"9Replace this use of System.out or System.err by a logger.(¹À³‚
-N
-squid:S106 "9Replace this use of System.out or System.err by a logger.(ƒÚáB
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(Öû³œ
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿‹±òıÿÿÿÿ
-Ssquid:S3655"7Call "Optional#isPresent()" before accessing the value.(ğ…ú–øÿÿÿÿ
-osquid:S1602"SRemove useless curly braces around statement and then remove useless return keyword(å´ĞÄşÿÿÿÿ
-usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çâîÀıÿÿÿÿ
-T
-squid:S106#"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ

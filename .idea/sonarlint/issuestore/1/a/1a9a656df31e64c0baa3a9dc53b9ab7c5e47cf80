@@ -1,22 +1,0 @@
-
-1squid:S1220""Move this file to a named package.
-Xsquid:S1854&"5Remove this useless assignment to local variable "a".(å‹æ×þÿÿÿÿ8ÿðá”ï,
-V
-squid:S106+"9Replace this use of System.out or System.err by a logger.(žàÙ™8ÿðá”ï,
-Isquid:S1481&"&Remove this unused "a" local variable.(å‹æ×þÿÿÿÿ8ÿðá”ï,
-º%squid:RedundantThrowsDeclarationCheck	"}Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException', as it cannot be thrown from method's body.(Ô‰‚õùÿÿÿÿ8ý¶…•ï,
-Gsquid:S00108!")Either remove or fill this block of code.(ë¸°-8ÿðá”ï,
-]squid:S22740":Remove this call to "wait" or move it into a "while" loop.(¹Çžíøÿÿÿÿ8ÿðá”ï,
-nsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(ö²«Œúÿÿÿÿ8ÿðá”ï,
-ƒsquid:S22730"`Move this call to "wait()" into a synchronized block to be sure the monitor on "Object" is held.(¹Çžíøÿÿÿÿ8ÿðá”ï,
-Fsquid:S11482"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÿðá”ï,
-isquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(¿žî¡8ÿðá”ï,
-dsquid:S21421"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ÿðá”ï,
-\squid:UnusedPrivateMethod"0Remove this unused private "cpuJobPerMs" method.(êÂŠ©8ÿðá”ï,
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ýÊä–8ÿðá”ï,
-[
-squid:S106-"9Replace this use of System.out or System.err by a logger.(üâœ ÿÿÿÿÿ8ÿðá”ï,
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(†Á¸ÿÿÿÿÿ8ã¯í±…-
-[
-squid:S106)"9Replace this use of System.out or System.err by a logger.(åê±¨ÿÿÿÿÿ8ã¯í±…-

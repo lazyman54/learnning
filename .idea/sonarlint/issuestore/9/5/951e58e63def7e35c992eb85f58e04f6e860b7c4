@@ -1,35 +1,0 @@
-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ó‡ğ…8è²ö±…-
-V
-squid:S106&"9Replace this use of System.out or System.err by a logger.(È¶ğŠ8è²ö±…-
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(†·§ÿÿÿÿÿ8è²ö±…-
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(äîÓÕşÿÿÿÿ8è²ö±…-
-[
-squid:S106<"9Replace this use of System.out or System.err by a logger.(ñŒÈıÿÿÿÿ8Ì²…-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(÷ƒëâ8è²ö±…-
-V
-squid:S106*"9Replace this use of System.out or System.err by a logger.(ÉôäŞ8è²ö±…-
-[
-squid:S106!"9Replace this use of System.out or System.err by a logger.(¢ªñ°üÿÿÿÿ8è²ö±…-
-V
-squid:S106#"9Replace this use of System.out or System.err by a logger.(äõÅÛ8è²ö±…-
-[
-squid:S106("9Replace this use of System.out or System.err by a logger.(î”ºÎÿÿÿÿÿ8è²ö±…-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(…Ïëö8è²ö±…-
-[
-squid:S106,"9Replace this use of System.out or System.err by a logger.(îïÛúÿÿÿÿ8è²ö±…-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(İ¨†İ8è²ö±…-
-[
-squid:S106."9Replace this use of System.out or System.err by a logger.(ì‚Èùşÿÿÿÿ8è²ö±…-
-]squid:UnusedPrivateMethod",Remove this unused private "reflect" method.(õòø¥úÿÿÿÿ8©†ö±…-
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(£¸ß»úÿÿÿÿ8è²ö±…-
-[
-squid:S106;"9Replace this use of System.out or System.err by a logger.(ÂÅ¹íüÿÿÿÿ8ƒ¸ü±…-
-Xsquid:S2209<"5Change this instance-reference to a static reference.(ñŒÈıÿÿÿÿ8Ìêƒ²…-

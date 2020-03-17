@@ -1,14 +1,0 @@
-
-"squid:ClassVariableVisibilityCheck$"[Make executorService a static final constant or non-public and provide accessors if needed.(€«©ιϋÿÿÿÿ
-ƒ"squid:ClassVariableVisibilityCheck)"UMake failCount a static final constant or non-public and provide accessors if needed.(–λ®
-O
-squid:S106|"9Replace this use of System.out or System.err by a logger.(°ψ
-T
-squid:S106F"9Replace this use of System.out or System.err by a logger.(†‘©ιόÿÿÿÿ
-@squid:S1148€"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ
-†"squid:ClassVariableVisibilityCheck&"SMake request a static final constant or non-public and provide accessors if needed.(Ά°ÿ‚ωÿÿÿÿ
-O
-squid:S106^"9Replace this use of System.out or System.err by a logger.(λ³Π”
-‹"squid:ClassVariableVisibilityCheck("XMake successCount a static final constant or non-public and provide accessors if needed.(νσυ”όÿÿÿÿ
-T
-squid:S106s"9Replace this use of System.out or System.err by a logger.(¨Θάύÿÿÿÿ

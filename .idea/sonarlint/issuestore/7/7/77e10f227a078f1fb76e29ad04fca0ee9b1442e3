@@ -1,15 +1,0 @@
-
-Esquid:S1068")Remove this unused "inter" private field.( †υνύÿÿÿÿ
-Fsquid:S1068"*Remove this unused "argObj" private field.(ϊ—Τύÿÿÿÿ
-}"squid:ClassVariableVisibilityCheck"OMake str a static final constant or non-public and provide accessors if needed.(Όςύ
-N
-squid:S106"9Replace this use of System.out or System.err by a logger.(σύ
-N
-squid:S106&"9Replace this use of System.out or System.err by a logger.(£Φ²
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(κκ€Β
-Bsquid:S1068"+Remove this unused "argObjs" private field.(ϊª²Ά
-O
-squid:S106""9Replace this use of System.out or System.err by a logger.(ψ¦›
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(κκ€Β
