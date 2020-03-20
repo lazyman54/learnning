@@ -27,7 +27,7 @@ public class protostuffMain {
 
         System.out.println(newEntity);
 
-        System.out.println(JSON.toJSONString(entity).getBytes().length).;
+        System.out.println(JSON.toJSONString(entity).getBytes().length);
 
     }
 
