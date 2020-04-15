@@ -17,7 +17,6 @@ public class protostuffMain {
 
         Schema<Entity> schema = RuntimeSchema.getSchema(Entity.class);
 
-
         byte[] bytes = ProtostuffIOUtil.toByteArray(entity, schema, LinkedBuffer.allocate(256));
         System.out.println(bytes.length);
 
