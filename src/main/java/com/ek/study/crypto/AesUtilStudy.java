@@ -8,6 +8,10 @@ import javax.crypto.spec.IvParameterSpec;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+/**
+ * Padding： PKCS5Padding、NOPadding、ISO10126Padding
+ * mode: CBC/ECB/CTR.........
+ */
 public class AesUtilStudy {
 
     public static final String aesKey = "sfohofj2w0464316";
