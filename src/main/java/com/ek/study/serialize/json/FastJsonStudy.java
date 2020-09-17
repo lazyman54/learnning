@@ -1,32 +1,28 @@
 package com.ek.study.serialize.json;
 
 import com.alibaba.fastjson.JSON;
+import lombok.Data;
 
 public class FastJsonStudy {
 
     public static void main(String[] args) {
-        Data data = new Data();
+        JsonData data = new JsonData();
         data.setName("eric");
-        String abc = "{\"name\":\"eric\"}";
-        JSON.parseObject(abc, Data.class);
+        JsonData.InnerData innerData = new JsonData.InnerData();
+        innerData.setMsg("msg");
+        data.setConfig(innerData);
         System.out.println(JSON.toJSONString(data));
     }
 
 }
 
-
-@lombok.Data
-class Data {
+@Data
+class JsonData {
     private String name;
-    private Integer age;
-    private Config config;
+    private InnerData config;
 
-    public Config getAbc() {
-        return config;
+    @Data
+    public static class InnerData {
+        String msg;
     }
-}
-
-@lombok.Data
-class Config {
-    private String configData;
 }

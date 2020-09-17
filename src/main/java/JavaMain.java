@@ -1,4 +1,5 @@
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,8 +13,12 @@ public class JavaMain {
 
         Set<Integer> hashList = new HashSet<>();
 
-        System.out.println(Math.abs(Integer.MIN_VALUE) % 100);
-        System.out.println(hashList.size());
+        System.out.println(Integer.toBinaryString(300));
+        byte[] bytes = "testing".getBytes(StandardCharsets.UTF_8);
+        for (byte aByte : bytes) {
+            System.out.println(aByte);
+        }
+        System.out.println("2".getBytes());
 
         /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
 
