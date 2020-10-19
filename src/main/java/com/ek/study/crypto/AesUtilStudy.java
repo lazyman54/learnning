@@ -17,16 +17,21 @@ public class AesUtilStudy {
     public static final String aesKey = "sfohofj2w0464316";
     public static final String encodeModel_CBC = "AES/CBC/PKCS5Padding";
     public static final String encodeModel_ECB = "AES/ECB/PKCS5Padding";
-    public static final String encodeModel_CTR = "AES/CTR/PKCS5Padding";
+    //public static final String encodeModel_CTR = "AES/CTR/PKCS5Padding";
 //    public static final String encodeModel_CBC = "AES/CBC/NOPadding";
 //    public static final String encodeModel_ECB = "AES/ECB/NOPadding";
-//    public static final String encodeModel_CTR = "AES/CTR/NOPadding";
+    public static final String encodeModel_CTR = "AES/CTR/NOPadding";
 
     public static void main(String[] args) throws Exception {
-        String originStr = "my name is eric,what's your name";
-        ecb(originStr);
-        cbc(originStr);
-        ctr(originStr);
+        Boolean result = null;
+
+
+        System.out.println(true == result);
+        //String originStr = "my name is eric,what's your name";
+        //String originStr = "897641657613546";
+        // ecb(originStr);
+        //cbc(originStr);
+        //ctr(originStr);
     }
 
     private static void ecb(String data) throws Exception {
@@ -49,7 +54,7 @@ public class AesUtilStudy {
     private static void ctr(String data) throws Exception {
         String enStr = aesCtrEncode(data.getBytes());
         System.out.println(enStr);
-        enStr = "mynameisericandyou";
+        enStr = "9ACz/Q3dyAM8YWyvygUydzfF/Uk=";
         String originStr = aesCtrDecode(Base64.getDecoder().decode(enStr));
         System.out.println(originStr);
 
