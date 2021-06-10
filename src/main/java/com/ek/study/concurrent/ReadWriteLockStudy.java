@@ -11,13 +11,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReadWriteLockStudy {
 
-    private ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock(false);
+    private final ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock(false);
 
-    private ReentrantReadWriteLock.ReadLock readLock = reentrantReadWriteLock.readLock();
+    private final ReentrantReadWriteLock.ReadLock readLock = reentrantReadWriteLock.readLock();
 
-    private ReentrantReadWriteLock.WriteLock writeLock = reentrantReadWriteLock.writeLock();
+    private final ReentrantReadWriteLock.WriteLock writeLock = reentrantReadWriteLock.writeLock();
 
-    private CountDownLatch countDownLatch = new CountDownLatch(10);
+    private final CountDownLatch countDownLatch = new CountDownLatch(10);
 
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 

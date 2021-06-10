@@ -31,7 +31,7 @@ public class GatewayPerformance {
         this.httpClient = HttpClientBuilder.create().build();
     }
 
-    private HttpClient httpClient;
+    private final HttpClient httpClient;
 
     public ExecutorService executorService;
 
@@ -44,9 +44,9 @@ public class GatewayPerformance {
     ObjectMapper objectMapper = new ObjectMapper();
 
 
-    private ThreadFactory defaultFactory = new ThreadFactory() {
+    private final ThreadFactory defaultFactory = new ThreadFactory() {
 
-        private AtomicInteger ato = new AtomicInteger(0);
+        private final AtomicInteger ato = new AtomicInteger(0);
 
         @Override
         public Thread newThread(Runnable r) {
@@ -58,7 +58,7 @@ public class GatewayPerformance {
         }
     };
 
-    private AtomicInteger exeCount = new AtomicInteger(0);
+    private final AtomicInteger exeCount = new AtomicInteger(0);
 
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {

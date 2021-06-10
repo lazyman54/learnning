@@ -11,7 +11,7 @@ import java.util.concurrent.RecursiveTask;
  * @date 2017/10/20
  */
 public class ForkJoinPoolStudy {
-    private static int maxInt = Integer.MAX_VALUE >> 5;
+    private static final int maxInt = Integer.MAX_VALUE >> 5;
 
     public static void main(String[] args) {
         System.out.println(traditionalWay());
@@ -44,8 +44,8 @@ public class ForkJoinPoolStudy {
 }
 
 class MyRecursiveTask extends RecursiveTask<Long> {
-    private int beginPosition;
-    private int endPosition;
+    private final int beginPosition;
+    private final int endPosition;
 
     public MyRecursiveTask(int beginPosition, int endPosition) {
         super();

@@ -19,8 +19,8 @@ import java.util.Map;
  */
 public class FirstStudy {
 
-    private JavaCompiler javaCompiler;
-    private StandardJavaFileManager stdManager;
+    private final JavaCompiler javaCompiler;
+    private final StandardJavaFileManager stdManager;
 
     static final String SINGLE_JAVA = "/* a single java class to one file */  "
             + "package com.ek.study;                                            "

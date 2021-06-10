@@ -8,13 +8,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class ThreadLocalTest {
 
-    private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
-    private static InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
+    private static final InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
 
-    private static ExecutorService executorService = Executors.newFixedThreadPool(5);
+    private static final ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-    private static TransmittableThreadLocal<String> transmittableThreadLocal = new TransmittableThreadLocal<>();
+    private static final TransmittableThreadLocal<String> transmittableThreadLocal = new TransmittableThreadLocal<>();
 
     public static void main(String[] args) {
         ((ThreadPoolExecutor) executorService).prestartAllCoreThreads();

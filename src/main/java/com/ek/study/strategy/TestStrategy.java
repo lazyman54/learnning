@@ -10,7 +10,7 @@ public enum TestStrategy implements IStrategy {
         }
     };
 
-    private KeyEnum keyEnum;
+    private final KeyEnum keyEnum;
 
     TestStrategy(KeyEnum keyEnum) {
         this.keyEnum = keyEnum;

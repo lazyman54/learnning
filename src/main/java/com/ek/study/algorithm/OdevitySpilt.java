@@ -33,7 +33,7 @@ public class OdevitySpilt {
 
 class OdevityAlgorithm {
 
-    private int[] source;
+    private final int[] source;
 
     public OdevityAlgorithm(int[] source) {
         this.source = source;

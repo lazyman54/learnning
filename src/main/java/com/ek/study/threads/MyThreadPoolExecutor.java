@@ -13,8 +13,8 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
 
     private boolean isPaused;
 
-    private ReentrantLock pauseLock = new ReentrantLock();
-    private Condition unPaused = pauseLock.newCondition();
+    private final ReentrantLock pauseLock = new ReentrantLock();
+    private final Condition unPaused = pauseLock.newCondition();
 
 
     public MyThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {

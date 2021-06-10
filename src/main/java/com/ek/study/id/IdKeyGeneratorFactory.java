@@ -111,7 +111,7 @@ public class IdKeyGeneratorFactory {
         /**
          * 带精简可读时间，long类型
          */
-        WITH_DATE_SHORT_LONG(),;
+        WITH_DATE_SHORT_LONG(),
     }
 
 }

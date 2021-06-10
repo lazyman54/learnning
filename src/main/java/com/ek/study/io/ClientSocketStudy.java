@@ -34,8 +34,8 @@ public class ClientSocketStudy {
 }
 
 class Client {
-    private String serverHost;
-    private int serverPort;
+    private final String serverHost;
+    private final int serverPort;
 
     public Client(String serverHost, int serverPort) {
         this.serverHost = serverHost;

@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @date 2017/10/20
  */
 public class ThreadExceptionStudy {
-    private static ThreadPoolExecutor executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
+    private static final ThreadPoolExecutor executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
 
     public static void main(String[] args) {
         executorService.prestartAllCoreThreads();

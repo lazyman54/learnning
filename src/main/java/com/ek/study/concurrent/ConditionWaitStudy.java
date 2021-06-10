@@ -64,8 +64,8 @@ public class ConditionWaitStudy {
 }
 
 class StringPool {
-    private int poolMaxSize = 0;
-    private int semaphoreSize = 5;
+    private final int poolMaxSize = 0;
+    private final int semaphoreSize = 5;
     public List<String> list = new ArrayList<>();
     //private Semaphore semaphore = new Semaphore(semaphoreSize);
     public ReentrantLock lock = new ReentrantLock();

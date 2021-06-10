@@ -6,11 +6,11 @@ import java.io.UnsupportedEncodingException;
  * @date 2017/10/13
  */
 public class JavaMain {
-    public static void main(String[] args) throws UnsupportedEncodingException {
+
+    public static void main(String[] args) throws UnsupportedEncodingException{
 
         Integer a = 128;
         Integer b = 128;
-
         System.out.println(a == b);
 
         /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
@@ -21,19 +21,16 @@ public class JavaMain {
         }
         System.out.println(sb.toString().toLowerCase());*/
 
-
-
-
     }
 
-    private static void cpuJobPerMs() {
+    private static void cpuJobPerMs(){
         long oldCurrent = System.currentTimeMillis();
         int count = 0;
         long newCurrent;
-        while ((newCurrent = System.currentTimeMillis()) == oldCurrent) {
+        while((newCurrent = System.currentTimeMillis()) == oldCurrent){
 
         }
-        while (System.currentTimeMillis() == newCurrent) {
+        while(System.currentTimeMillis() == newCurrent){
             //System.out.println("a");
             int a = 5 + 5;
             count++;
@@ -44,9 +41,9 @@ public class JavaMain {
         Long maxLong = (1L << 62) + ((1L << 62) - 1);
         System.out.println(maxLong);
         Object obj = new Object();
-        try {
+        try{
             obj.wait();
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e){
             e.printStackTrace();
         }
     }
@@ -56,9 +53,9 @@ public class JavaMain {
 
 enum TestEnv {
     H5("haaa");
-    private String code;
+    private final String code;
 
-    TestEnv(String code) {
+    TestEnv(String code){
         this.code = code;
     }
 }

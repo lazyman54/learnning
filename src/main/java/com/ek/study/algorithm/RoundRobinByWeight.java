@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class RoundRobinByWeight {
 
-    private AtomicInteger sequence = new AtomicInteger(0);
+    private final AtomicInteger sequence = new AtomicInteger(0);
 
     public String select(List<String> origin) {
         int totalWeight = 0;

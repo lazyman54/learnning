@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  */
 public class ServerSocketChannelStudy {
 
-    private static ExecutorService executors = Executors.newFixedThreadPool(8);
+    private static final ExecutorService executors = Executors.newFixedThreadPool(8);
 
     public static void main(String[] args) throws IOException {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();

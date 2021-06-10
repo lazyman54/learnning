@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class HttpRequest extends Request {
 
-    private InputStream input;
+    private final InputStream input;
     private String uri;
 
     public HttpRequest(InputStream input) {

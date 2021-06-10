@@ -16,7 +16,7 @@ public class SingletonEnumModel {
 
     private enum SingletonEnum {
         MySingleTon;
-        private SingletonEnumModel singletonEnumModel;
+        private final SingletonEnumModel singletonEnumModel;
 
         SingletonEnum() {
             this.singletonEnumModel = new SingletonEnumModel();

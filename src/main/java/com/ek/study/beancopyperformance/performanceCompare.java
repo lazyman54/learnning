@@ -10,10 +10,10 @@ import java.util.concurrent.Executors;
 
 public class performanceCompare {
 
-    private static IBeanCopy apache = new ApacheBeanCopy();
-    private static IBeanCopy cglib = new CglibBeanCopy();
-    private static IBeanCopy javaSetter = new JavaSetterBeanCopy();
-    private static IBeanCopy spring = new SpringBeanCopy();
+    private static final IBeanCopy apache = new ApacheBeanCopy();
+    private static final IBeanCopy cglib = new CglibBeanCopy();
+    private static final IBeanCopy javaSetter = new JavaSetterBeanCopy();
+    private static final IBeanCopy spring = new SpringBeanCopy();
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, InterruptedException {
 
@@ -205,7 +205,7 @@ class ApacheBeanCopy implements IBeanCopy {
 
 class CglibBeanCopy implements IBeanCopy {
 
-    private BeanCopier beanCopier = BeanCopier.create(SourceBean.class, TargetBean.class, false);
+    private final BeanCopier beanCopier = BeanCopier.create(SourceBean.class, TargetBean.class, false);
 
     @Override
     public void copyBean(Object source, Object target) {

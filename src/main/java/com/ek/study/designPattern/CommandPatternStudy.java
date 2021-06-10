@@ -23,7 +23,7 @@ interface ICommand {
 
 class SoutCommand implements ICommand {
 
-    private Receiver receiver;
+    private final Receiver receiver;
 
     public SoutCommand(Receiver receiver) {
         this.receiver = receiver;
@@ -51,7 +51,7 @@ class PlayCommand implements ICommand {
 
 class StopCommand implements ICommand {
 
-    private Receiver receiver;
+    private final Receiver receiver;
 
     public StopCommand(Receiver receiver) {
         this.receiver = receiver;
@@ -66,7 +66,7 @@ class StopCommand implements ICommand {
 
 class Invoke {
 
-    private ICommand iCommand;
+    private final ICommand iCommand;
 
     public Invoke(ICommand iCommand) {
         this.iCommand = iCommand;

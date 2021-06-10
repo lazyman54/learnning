@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class InvokerHandler implements InvocationHandler {
 
-    private Object object;
+    private final Object object;
 
     public InvokerHandler(Object object) {
         this.object = object;

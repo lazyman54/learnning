@@ -21,7 +21,7 @@ public class FilterChainPatternStudy {
 
 class ChainHandler {
 
-    private Filter filters[] = new Filter[0];
+    private final Filter[] filters = new Filter[0];
 
     private int pos;
 

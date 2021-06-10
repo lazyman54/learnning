@@ -26,7 +26,7 @@ public class StampLockStudy {
     }
 
     private static class OccupiedCPUReadThread implements Runnable {
-        private StampedLock lock;
+        private final StampedLock lock;
 
         public OccupiedCPUReadThread(StampedLock lock) {
             this.lock = lock;
