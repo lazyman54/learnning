@@ -1,4 +1,7 @@
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author lazyman
@@ -9,9 +12,14 @@ public class JavaMain {
 
     public static void main(String[] args) throws UnsupportedEncodingException{
 
-        Integer a = 128;
-        Integer b = 128;
-        System.out.println(a == b);
+        Set<Integer> hashList = new HashSet<>();
+
+        System.out.println(Integer.toBinaryString(300));
+        byte[] bytes = "testing".getBytes(StandardCharsets.UTF_8);
+        for( byte aByte : bytes ){
+            System.out.println(aByte);
+        }
+        System.out.println("2".getBytes());
 
         /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
 
@@ -20,6 +28,9 @@ public class JavaMain {
             sb.append(chars[RandomUtils.nextInt(chars.length)]);
         }
         System.out.println(sb.toString().toLowerCase());*/
+
+        System.out.println((long) Math.ceil(4.12));
+
 
     }
 
@@ -53,7 +64,7 @@ public class JavaMain {
 
 enum TestEnv {
     H5("haaa");
-    private final String code;
+    private String code;
 
     TestEnv(String code){
         this.code = code;

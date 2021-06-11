@@ -1,6 +1,5 @@
 package com.ek.study.dynamicProxy;
 
-import sun.misc.ProxyGenerator;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

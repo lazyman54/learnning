@@ -30,7 +30,15 @@ public class FilterChain {
 
             final Invoker next = last;
 
-            last = param -> filter.invoke(next, param);
+/*            last = new Invoker(){
+                @Override
+                public String invoke(String param) {
+                    return filter.invoke(next, param);
+                }
+            };*/
+            last = param -> {
+                return filter.invoke(next, param);
+            };
         }
         return last;
     }
