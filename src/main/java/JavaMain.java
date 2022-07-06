@@ -1,3 +1,5 @@
+import io.netty.util.internal.StringUtil;
+
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
@@ -10,38 +12,30 @@ import java.util.Set;
  */
 public class JavaMain {
 
-    public static void main(String[] args) throws UnsupportedEncodingException{
+    public static void main(String[] args) throws UnsupportedEncodingException {
 
-        Set<Integer> hashList = new HashSet<>();
+        Test test1 = new Test();
 
-        System.out.println(Integer.toBinaryString(300));
-        byte[] bytes = "testing".getBytes(StandardCharsets.UTF_8);
-        for( byte aByte : bytes ){
-            System.out.println(aByte);
-        }
-        System.out.println("2".getBytes());
-
-        /*char[] chars = "QWERTYUIOPLKJHGFDSAZXVCVBNM1234567890".toCharArray();
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 34; i++) {
-            sb.append(chars[RandomUtils.nextInt(chars.length)]);
-        }
-        System.out.println(sb.toString().toLowerCase());*/
-
-        System.out.println((long) Math.ceil(4.12));
-
+        test1.a = 1;
+        Test.b = 1;   //Test.b=1
+        Test test2 = new Test();
+        test2.a = 2;
+        Test.b = 2;   //Test.b =2
+        System.out.println(test1.a); // 1
+        System.out.println(Test.b); // 2
+        System.out.println(test2.a); // 2
+        System.out.println(Test.b); // 2
 
     }
 
-    private static void cpuJobPerMs(){
+    private static void cpuJobPerMs() {
         long oldCurrent = System.currentTimeMillis();
         int count = 0;
         long newCurrent;
-        while((newCurrent = System.currentTimeMillis()) == oldCurrent){
+        while ((newCurrent = System.currentTimeMillis()) == oldCurrent) {
 
         }
-        while(System.currentTimeMillis() == newCurrent){
+        while (System.currentTimeMillis() == newCurrent) {
             //System.out.println("a");
             int a = 5 + 5;
             count++;
@@ -52,13 +46,21 @@ public class JavaMain {
         Long maxLong = (1L << 62) + ((1L << 62) - 1);
         System.out.println(maxLong);
         Object obj = new Object();
-        try{
+        try {
             obj.wait();
-        } catch(InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+}
 
+
+abstract class Test {
+
+    public int a;
+    public static int b;
+
+    static void say(){}
 
 }
 
@@ -66,7 +68,7 @@ enum TestEnv {
     H5("haaa");
     private String code;
 
-    TestEnv(String code){
+    TestEnv(String code) {
         this.code = code;
     }
 }
