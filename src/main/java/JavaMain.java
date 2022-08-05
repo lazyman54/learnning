@@ -14,16 +14,16 @@ public class JavaMain {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        Test test1 = new Test();
+//        Test test1 = new Test();
 
-        test1.a = 1;
+//        test1.a = 1;
         Test.b = 1;   //Test.b=1
-        Test test2 = new Test();
-        test2.a = 2;
+//        Test test2 = new Test();
+//        test2.a = 2;
         Test.b = 2;   //Test.b =2
-        System.out.println(test1.a); // 1
+//        System.out.println(test1.a); // 1
         System.out.println(Test.b); // 2
-        System.out.println(test2.a); // 2
+//        System.out.println(test2.a); // 2
         System.out.println(Test.b); // 2
 
     }
