@@ -1,7 +1,12 @@
 import io.netty.util.internal.StringUtil;
+import org.apache.commons.codec.digest.Md5Crypt;
+import org.apache.tomcat.util.security.MD5Encoder;
+import sun.security.provider.MD5;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,19 +17,26 @@ import java.util.Set;
  */
 public class JavaMain {
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 
 //        Test test1 = new Test();
+        MessageDigest md5 = MessageDigest.getInstance("md5");
+        byte[] digest = md5.digest("my".getBytes());
 
+        String encode = MD5Encoder.encode(digest);
+        System.out.println(encode);
 //        test1.a = 1;
-        Test.b = 1;   //Test.b=1
+//        Test.b = 1;   //Test.b=1
 //        Test test2 = new Test();
 //        test2.a = 2;
-        Test.b = 2;   //Test.b =2
+//        Test.b = 2;   //Test.b =2
 //        System.out.println(test1.a); // 1
-        System.out.println(Test.b); // 2
+//        System.out.println(Test.b); // 2
 //        System.out.println(test2.a); // 2
-        System.out.println(Test.b); // 2
+//        System.out.println(Test.b); // 2
+        String s = Md5Crypt.md5Crypt("my".getBytes());
+        System.out.println();
+        System.out.println(s);
 
     }
 
