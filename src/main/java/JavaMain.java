@@ -37,7 +37,6 @@ public class JavaMain {
         String s = Md5Crypt.md5Crypt("my".getBytes());
         System.out.println();
         System.out.println(s);
-
     }
 
     private static void cpuJobPerMs() {
