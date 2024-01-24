@@ -7,11 +7,11 @@ public class EqualInstallmentPaymentCalculator {
     public static void main(String[] args) {
         // 贷款本金（以元为单位）
 //        BigDecimal totalPrincipal = new BigDecimal("1584358.6");
-        BigDecimal totalPrincipal = new BigDecimal("2650000");
+        BigDecimal totalPrincipal = new BigDecimal("1300000");
         // 贷款期限（以月为单位）
-        int loanTerm = 360;
+        int loanTerm = 189;
         // 贷款月利率
-        BigDecimal interestRate = new BigDecimal("0.042");
+        BigDecimal interestRate = new BigDecimal("0.045");
 
         calculateMonthlyPayments(totalPrincipal, interestRate, loanTerm);
     }
